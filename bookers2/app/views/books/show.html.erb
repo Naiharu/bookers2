@@ -1,0 +1,51 @@
+<body>
+	<div class="containar">
+		<div class="row">
+			<div class="col-xs-3">
+				<h2>User info</h2>
+				 <div class="user-edit-image">
+				 	<%= attachment_image_tag @bookr.user, :profile_image, :fill, 100, 100, format: 'jpeg' , fallback: "no_image.png" %>
+    			 </div>
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>name</th>
+							<th class="int"><%= @bookr.user.name %></th>
+						</tr> 
+						<tr>
+							<th>introduction</th>
+							<th class="int"><%= @bookr.user.introduction %></th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row">
+					<%= link_to "",edit_user_path(@bookr.user.id),class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+				</div>
+				<%= render 'users/li' %>
+			</div>
+	<div class="col-xs-9">
+		<h2>Book detail</h2>
+			<table class="table table-hover table-inverse">
+					<thead></thead>
+					<tbody>
+					<tr>
+					<td><div class="user-edit-image">
+				 	<%= attachment_image_tag @bookr.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.png" %><br>
+				 	<%=link_to @bookr.user.name, user_path(@bookr.user.id) %>
+				 	</td>
+						<td><%=@bookr.title.truncate(20) %></td>
+						<td><%= @bookr.category.truncate(60) %></td>
+						<% if @bookr.user == current_user %>
+						<td><%= link_to "Edit", edit_book_path(@bookr),class:"btn-sm btn-success" %></td>
+						<% end %>
+						<% if @bookr.user == current_user %>
+						<td><%= link_to "Destroy",book_path, class:"btn-sm btn-danger",method: :delete %></td>
+						<% end %>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+		</div>
+	</div>
+</body>

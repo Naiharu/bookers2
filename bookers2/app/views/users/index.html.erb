@@ -1,0 +1,35 @@
+<body>
+	<div class="containar">
+		<div class="row">
+			<div class="col-xs-3">
+			<%= render 'users/list' %>
+			<div class="row">
+				<%= link_to "",edit_user_path(@user.id),class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+				</div>
+			<%= render'users/li' %>
+			</div>
+			<div class="col-xs-9">
+				<h2>Users</h2>
+				<table class="table table-hover table-inverse">
+					<thead>
+						<tr>
+							<th>image</th>
+							<th>name</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @users.each do |user| %>
+						<tr>
+							<td><div class="user-edit-image">
+				 	<%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg' , fallback: "no_image.png" %></td>
+							<td><%= user.name %></td>
+							<td><%= link_to "Show", user_path(user.id) %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,37 @@
+<body>
+	<div class="containar">
+		<div class="row">
+			<div class="col-xs-3">
+			<%= render 'users/list' %>
+			<div class="row">
+				<%= link_to "",edit_user_path(@user),class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+				</div>
+			<%= render 'users/li' %>
+			</div>
+	<div class="col-xs-9">
+		<h2>Books</h2>
+			<table class="table table-hover table-inverse">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Title</th>
+						<th>Opinion</th>
+						</tr>
+				</thead>
+					<tbody>
+					<% @books.each do |book| %>
+					<tr>
+					<td><div class="user-edit-image">
+				 	<%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.png" %>
+				 	</td>
+						<td><%=link_to book.title,book_path(book.id).truncate(20) %></td>
+						<td><%= book.category.truncate(60) %></td>
+					</tr>
+					<% end %>
+					</tbody>
+				</table>
+			</div>
+			</div>
+		</div>
+	</div>
+</body>

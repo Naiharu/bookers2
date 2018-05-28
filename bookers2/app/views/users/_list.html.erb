@@ -1,0 +1,17 @@
+				<h2>User info</h2>
+				 <div class="user-edit-image">
+				 	<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' , fallback: "no_image.png" %>
+    			 </div>
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>name</th>
+							<th class="int"><%= @user.name%></th>
+						</tr>
+						<tr>
+							<th>introduction</th>
+							<th class="int"><%= @user.introduction %></th>
+						</tr>
+					</tbody>
+				</table>
+				
