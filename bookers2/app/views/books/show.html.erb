@@ -19,7 +19,9 @@
 					</tbody>
 				</table>
 				<div class="row">
+					<% if @bookr.user == current_user %>
 					<%= link_to "",edit_user_path(@bookr.user.id),class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+				<% end %>
 				</div>
 				<%= render 'users/li' %>
 			</div>
@@ -39,7 +41,7 @@
 						<td><%= link_to "Edit", edit_book_path(@bookr),class:"btn-sm btn-success" %></td>
 						<% end %>
 						<% if @bookr.user == current_user %>
-						<td><%= link_to "Destroy",book_path, class:"btn-sm btn-danger",method: :delete %></td>
+						<td><%= link_to "Destroy",book_path, method: :delete ,data: { confirm: '削除しますか？' } ,class:"btn-sm btn-danger" %></td>
 						<% end %>
 					</tr>
 					</tbody>

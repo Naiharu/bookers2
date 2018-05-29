@@ -25,7 +25,7 @@
   	 	<%= link_to " Books", books_path, class:"glyphicon glyphicon-book c" %>
      </div>
       <div class="icon">
-  	 	<%= link_to " logout", destroy_user_session_path, class:"glyphicon glyphicon-log-in c" ,method: :delete %>
+  	 	<%= link_to " logout", destroy_user_session_path, class:"glyphicon glyphicon-log-in c" ,method: :delete,data: { confirm: 'ログアウトしますか？' } %>
      </div>
   	 <% else %>
      <div class="icon">
